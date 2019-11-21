@@ -1,6 +1,6 @@
 {
   "name": "sttapi",
-  "version": "0.8.7",
+  "version": "0.8.8",
   "description": "TypeScript Client API for Star Trek Timelines",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
