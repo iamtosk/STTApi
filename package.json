@@ -8,6 +8,7 @@
     "prepare": "npm run build",
     "build": "tsc",
     "postbuild": "node_modules/.bin/copyfiles -f lib/*.d.ts dist",
+	"postbuild": "node_modules/.bin/copyfiles -f dist/*.* ../StarTrekTimelinesSpreadsheet/STTApi",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
