@@ -8,8 +8,13 @@ export class BonusCrew {
 export function bonusCrewForCurrentEvent(): BonusCrew | undefined {
     let result = new BonusCrew();
 
-    if (STTApi.playerData.character.events && STTApi.playerData.character.events.length > 0) {
-        let activeEvent = STTApi.playerData.character.events[0];
+    //credit for @emanueldejanu
+	//get only events that are opened or that starts in less than 2 days 
+    let events: any[] = (STTApi.playerData.character.events || []).filter((evt:any) => evt.opened || evt.seconds_to_start < 172800);
+	events.sort((a: any, b: any) => a.seconds_to_start - b.seconds_to_start);
+	if (events.length > 0) {
+		let activeEvent = events[0];
+		
         result.eventName = activeEvent.name;
 
         let eventCrew: { [index: string]: any } = {};
