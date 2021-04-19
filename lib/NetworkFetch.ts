@@ -118,6 +118,7 @@ export class NetworkFetch implements NetworkInterface {
 	}
 
 	async getRaw(uri: string, qs: any): Promise<ArrayBuffer> {
+		if(uri.includes("cloudfront.net/bundles/webgl/")) throw new Error("disabled");
 		// TODO: this should not be in here (networkfetch should be agnostic of its callers)
 		let headers: any = {
 			'Origin': CONFIG.URL_SERVER,
